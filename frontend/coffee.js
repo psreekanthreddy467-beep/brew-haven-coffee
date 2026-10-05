@@ -1,10 +1,10 @@
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://brew-haven-coffee.onrender.com/api/products";
 
 let products = [];
 
 async function loadProducts() {
     try {
-        const response = await fetch("http://localhost:5000/api/products");
+        const response = await fetch("https://brew-haven-coffee.onrender.com/api/products")
 
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -57,11 +57,11 @@ async function loadProducts() {
     { id:'croissant',  name:'Croissant',          cat:'bakery', price:3.5,  rating:4.8, reviews:167, desc:'Butter-laminated and baked fresh each morning until flaky.', img:'https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=500&auto=format&fit=crop' },
     { id:'sandwich',   name:'Sandwich',           cat:'bakery', price:6.5,  rating:4.7, reviews:143, desc:'Toasted sourdough with seasonal fillings, made to order.', img:'https://images.unsplash.com/photo-1554433607-66b5efe9d304?q=80&w=500&auto=format&fit=crop' },
   ];
-  const API_URL = "http://localhost:5000/api";
+  const API_URL = "https://brew-haven-coffee.onrender.com/api/orders";
 
 async function loadProducts() {
   try {
-    const response = await fetch(`${API_URL}/products`);
+    const response = await fetch(`https://brew-haven-coffee.onrender.com/api/products`);
 
     if (!response.ok) {
       throw new Error("Failed to fetch products");
@@ -555,7 +555,7 @@ const address =
   try {
     successEl.textContent = 'Placing your order...';
 
-    const response = await fetch('http://localhost:5000/api/orders', {
+    const response = await fetch('https://brew-haven-coffee.onrender.com/api/orders', {
       method: 'POST',
 
       headers: {
