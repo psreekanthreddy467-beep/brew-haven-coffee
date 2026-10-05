@@ -2,15 +2,15 @@ const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
-    port: 465,
+    port: 587,
     secure: true,
 
     // Force IPv4
     family: 4,
 
     auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
+        user: process.env.psreekanthreddy467,
+        pass: process.env.ghldrqbcfittjaxn
     }
 });
 
@@ -43,7 +43,7 @@ async function sendOrderEmails(order) {
 
     // Email to customer
     await transporter.sendMail({
-        from: `"Brew Haven Coffee" <${process.env.EMAIL_USER}>`,
+        from: `"Brew Haven Coffee" <${process.env.psreekanthreddy467}>`,
         to: order.customer.email,
         subject: "Brew Haven Coffee - Order Confirmation",
 
@@ -76,8 +76,8 @@ Thank you for choosing Brew Haven Coffee!
 
     // Email to admin
     await transporter.sendMail({
-        from: `"Brew Haven Coffee" <${process.env.EMAIL_USER}>`,
-        to: process.env.ADMIN_EMAIL,
+        from: `"Brew Haven Coffee" <${process.env.psreekanthreddy467}>`,
+        to: process.env.psreekanthreddy467,
         subject: "New Brew Haven Coffee Order",
 
         text: `
