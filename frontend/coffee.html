@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brew Haven Coffee | Freshly Brewed Happiness in Every Cup</title>
+<meta name="description" content="Brew Haven Coffee is a premium coffee house serving handcrafted espresso, cold brew, pastries and more. Organic beans, cozy seating, fast service, and online ordering.">
+<meta name="keywords" content="coffee shop, espresso, cappuccino, latte, cold brew, cafe near me, coffee delivery, Brew Haven">
+<meta name="author" content="P.Sreekanth Reddy">
+<link rel="canonical" href="https://www.brewhavencoffee.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="restaurant.restaurant">
+<meta property="og:title" content="Brew Haven Coffee | Freshly Brewed Happiness in Every Cup">
+<meta property="og:description" content="Handcrafted coffee made from the world's finest beans. Visit Brew Haven Coffee — organic, artisanal, unforgettable.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:url" content="https://www.brewhavencoffee.com/">
+<meta property="og:site_name" content="Brew Haven Coffee">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Brew Haven Coffee">
+<meta name="twitter:description" content="Freshly Brewed Happiness in Every Cup.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200&auto=format&fit=crop">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "name": "Brew Haven Coffee",
+  "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085",
+  "telephone": "+91-6302069554",
+  "priceRange": "₹₹",
+  "servesCuisine": "Coffee, Bakery",
+  "address": {
+  "@type": "PostalAddress",
+  "addressLocality": "Puttur",
+  "addressRegion": "Andhra Pradesh",
+  "addressCountry": "India"
+},
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "21:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "08:00", "closes": "22:00" }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "1284"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="coffee.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-cup">
+    <svg viewBox="0 0 120 120" width="70" height="70">
+      <path class="loader-steam s1" d="M45 40 C 40 30, 50 25, 45 15" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path class="loader-steam s2" d="M60 40 C 55 30, 65 25, 60 15" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path class="loader-steam s3" d="M75 40 C 70 30, 80 25, 75 15" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path d="M25 45 h60 l-6 40 a12 12 0 0 1-12 10 H43 a12 12 0 0 1-12-10 Z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="3"/>
+      <path d="M85 52 h8 a10 10 0 0 1 0 20 h-6" fill="none" stroke="currentColor" stroke-width="3"/>
+    </svg>
+  </div>
+  <p>Brewing your experience…</p>
+</div>
+
+<!-- Scroll progress bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Newsletter Popup -->
+<div class="newsletter-popup" id="newsletterPopup" role="dialog" aria-label="Newsletter subscription">
+  <button class="popup-close" id="popupClose" aria-label="Close popup">&times;</button>
+  <div class="popup-icon">☕</div>
+  <h3>Join the Brew Club</h3>
+  <p>Get 15% off your first order plus recipes, drops &amp; early access to seasonal blends.</p>
+  <form class="popup-form" id="popupForm">
+    <input type="email" placeholder="Your email address" required aria-label="Email address">
+    <button type="submit" class="btn btn-gold">Subscribe</button>
+  </form>
+</div>
+<div class="popup-overlay" id="popupOverlay"></div>
+
+<!-- ================= HEADER / NAV ================= -->
+<header class="site-header" id="siteHeader">
+  <nav class="navbar" aria-label="Main navigation">
+    <a href="#home" class="logo">
+      <span class="logo-mark">☕</span>
+      <span class="logo-text">Brew<em>Haven</em></span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="searchToggle" aria-label="Search menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      <button class="icon-btn" id="wishlistToggle" aria-label="View wishlist"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg><span class="badge" id="wishlistBadge">0</span></button>
+      <button class="icon-btn" id="cartToggle" aria-label="View cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg><span class="badge" id="cartBadge">0</span></button>
+      <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg>
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
+      </button>
+      <a href="#reservation" class="btn btn-gold btn-sm nav-reserve">Reserve a Table</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Menu search overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-box">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="menuSearchInput" placeholder="Search the menu — try 'latte' or 'chocolate'">
+      <button id="searchClose" aria-label="Close search">&times;</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</header>
+
+<main id="main-content">
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1920&auto=format&fit=crop" alt="Barista pouring latte art into a coffee cup" loading="eager">
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="beans-field" aria-hidden="true"></div>
+
+  <div class="hero-content container">
+    <p class="eyebrow reveal-up">Small batch &middot; Ethically sourced &middot; Roasted weekly</p>
+    <h1 class="reveal-up">Freshly Brewed <span>Happiness</span> in Every Cup</h1>
+    <p class="hero-sub reveal-up">Experience handcrafted coffee made from the world's finest beans.</p>
+    <div class="hero-cta reveal-up">
+      <a href="#menu" class="btn btn-gold">Order Now</a>
+      <a href="#menu" class="btn btn-outline">View Menu</a>
+    </div>
+
+    <div class="hero-stats reveal-up">
+      <div><span class="counter" data-target="10">0</span>+<small>Years Experience</small></div>
+      <div><span class="counter" data-target="50">0</span>+<small>Coffee Varieties</small></div>
+      <div><span class="counter" data-target="20000">0</span>+<small>Happy Customers</small></div>
+    </div>
+  </div>
+
+  <div class="hero-cup" aria-hidden="true">
+    <svg viewBox="0 0 220 220" width="220" height="220">
+      <g class="steam-group">
+        <path class="steam s1" d="M85 70 C 75 55, 95 45, 85 25" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
+        <path class="steam s2" d="M110 70 C 100 55, 120 45, 110 25" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
+        <path class="steam s3" d="M135 70 C 125 55, 145 45, 135 25" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
+      </g>
+      <ellipse cx="110" cy="180" rx="70" ry="10" fill="#000" opacity="0.15"/>
+      <path d="M45 80 h130 l-10 80 a20 20 0 0 1-20 18 H75 a20 20 0 0 1-20-18 Z" fill="#F4E7D3" stroke="#3A2317" stroke-width="4"/>
+      <ellipse cx="110" cy="80" rx="65" ry="12" fill="#5C3A24" stroke="#3A2317" stroke-width="4"/>
+      <path d="M175 95 h14 a18 18 0 0 1 0 36 h-10" fill="none" stroke="#3A2317" stroke-width="6"/>
+    </svg>
+  </div>
+  <a href="#about" class="scroll-cue" aria-label="Scroll down"><span></span></a>
+
+  <svg class="drip-divider" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,0 L1440,0 L1440,40 C1380,55 1340,75 1300,75 C1260,75 1250,35 1210,35 C1170,35 1160,80 1120,80 C1080,80 1075,45 1035,45 C995,45 985,65 945,65 C905,65 900,30 860,30 C820,30 815,70 775,70 C735,70 725,40 685,40 C645,40 640,60 600,60 C560,60 555,25 515,25 C475,25 470,55 430,55 C390,55 385,35 345,35 C305,35 300,72 260,72 C220,72 215,42 175,42 C135,42 130,20 90,20 C50,20 45,50 0,50 Z"/>
+  </svg>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-media reveal-left">
+      <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=900&auto=format&fit=crop" alt="Cozy Brew Haven Coffee café interior with warm lighting">
+      <div class="about-media-badge">
+        <span class="ring-mark" aria-hidden="true"></span>
+        <strong>Est. 2014</strong>
+        <small>Portland, Oregon</small>
+      </div>
+    </div>
+
+    <div class="about-copy reveal-right">
+      <p class="eyebrow">Our Story</p>
+      <h2>Poured with patience, <br>roasted with purpose.</h2>
+      <p>Brew Haven began as a single roaster in a converted garage, fueled by one belief: coffee should taste like where it came from. Today we still roast in small batches every week, buy directly from farmers we know by name, and pull every shot to order — never pre-brewed, never rushed.</p>
+      <p>Our mission is simple: bring people together over honest, exceptional coffee, served in a space that feels like a second home. Whether you're here for a quiet morning or a long afternoon of work, we've built this place for you to stay a while.</p>
+
+      <div class="about-stats">
+        <div class="stat-card">
+          <span class="counter" data-target="10">0</span><span class="plus">+</span>
+          <p>Years Experience</p>
+        </div>
+        <div class="stat-card">
+          <span class="counter" data-target="50">0</span><span class="plus">+</span>
+          <p>Coffee Varieties</p>
+        </div>
+        <div class="stat-card">
+          <span class="counter" data-target="20000">0</span><span class="plus">+</span>
+          <p>Happy Customers</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section class="why-us" id="why-us">
+  <div class="container">
+    <p class="eyebrow center">The Brew Haven Difference</p>
+    <h2 class="center reveal-up">Why Guests Choose Us</h2>
+    <div class="why-grid">
+      <div class="why-card reveal-up">
+        <div class="why-icon">🌱</div><h3>Organic Coffee Beans</h3><p>Certified organic, single-origin beans sourced direct from farm co-ops.</p>
+      </div>
+      <div class="why-card reveal-up">
+        <div class="why-icon">🔥</div><h3>Freshly Brewed Daily</h3><p>Roasted weekly, ground to order, brewed the moment you ask for it.</p>
+      </div>
+      <div class="why-card reveal-up">
+        <div class="why-icon">📶</div><h3>Free Wi-Fi</h3><p>Fast, reliable connection for remote work or a long catch-up.</p>
+      </div>
+      <div class="why-card reveal-up">
+        <div class="why-icon">🛋️</div><h3>Comfortable Seating</h3><p>Sink into handpicked armchairs and communal oak tables.</p>
+      </div>
+      <div class="why-card reveal-up">
+        <div class="why-icon">⚡</div><h3>Fast Service</h3><p>Orders ready in minutes without cutting a single corner.</p>
+      </div>
+      <div class="why-card reveal-up">
+        <div class="why-icon">💻</div><h3>Online Ordering</h3><p>Skip the line — order ahead from your phone or laptop.</p>
+      </div>
+      <div class="why-card reveal-up">
+        <div class="why-icon">🚚</div><h3>Home Delivery</h3><p>Delivered within 8 km.</p>
+      </div>
+      <div class="why-card reveal-up">
+        <div class="why-icon">😊</div><h3>Friendly Staff</h3><p>Baristas who remember your name and your order.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MENU ================= -->
+<section class="menu" id="menu">
+  <div class="container">
+    <p class="eyebrow center">Featured Menu</p>
+    <h2 class="center reveal-up">Crafted For Every Craving</h2>
+
+    <div class="menu-filters reveal-up" role="tablist" aria-label="Menu categories">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="coffee">Coffee</button>
+      <button class="filter-btn" data-filter="cold">Cold Brews</button>
+      <button class="filter-btn" data-filter="bakery">Bakery</button>
+    </div>
+
+    <div class="menu-grid" id="menuGrid"><!-- injected by JS --></div>
+  </div>
+</section>
+
+<!-- ================= SPECIAL OFFERS ================= -->
+<section class="offers" id="offers">
+  <div class="container">
+    <p class="eyebrow center light">Limited Time</p>
+    <h2 class="center light reveal-up">Special Offers</h2>
+    <div class="offers-grid">
+      <div class="offer-card reveal-up">
+        <span class="offer-tag">Weekday Special</span>
+        <h3>Buy One, Get One Free</h3>
+        <p>Any handcrafted espresso drink, Monday–Wednesday, 7–10am.</p>
+      </div>
+      <div class="offer-card reveal-up">
+        <span class="offer-tag">Weekends</span>
+        <h3>Weekend Discount</h3>
+        <p>15% off your entire order every Saturday &amp; Sunday.</p>
+      </div>
+      <div class="offer-card reveal-up">
+        <span class="offer-tag">Student ID Required</span>
+        <h3>Student Discount</h3>
+        <p>10% off all day, every day, with a valid student ID.</p>
+      </div>
+      <div class="offer-card reveal-up">
+        <span class="offer-tag">Brew Rewards</span>
+        <h3>Loyalty Rewards</h3>
+        <p>Earn a stamp per visit — your 10th cup is always on us.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <p class="eyebrow center">Inside Brew Haven</p>
+    <h2 class="center reveal-up">Gallery</h2>
+    <div class="gallery-grid">
+      <figure class="gallery-item reveal-up"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" alt="Latte art in a coffee cup" loading="lazy"><figcaption>Latte Art</figcaption></figure>
+      <figure class="gallery-item reveal-up"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=800&auto=format&fit=crop" alt="Freshly roasted coffee beans" loading="lazy"><figcaption>Fresh Roasted Beans</figcaption></figure>
+      <figure class="gallery-item reveal-up"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=800&auto=format&fit=crop" alt="Brew Haven café interior" loading="lazy"><figcaption>Our Space</figcaption></figure>
+      <figure class="gallery-item reveal-up"><img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=800&auto=format&fit=crop" alt="Barista making coffee" loading="lazy"><figcaption>Behind The Bar</figcaption></figure>
+      <figure class="gallery-item reveal-up"><img src="https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?q=80&w=800&auto=format&fit=crop" alt="Chocolate brownie dessert" loading="lazy"><figcaption>Sweet Treats</figcaption></figure>
+      <figure class="gallery-item reveal-up"><img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?q=80&w=800&auto=format&fit=crop" alt="Customers enjoying coffee together" loading="lazy"><figcaption>Good Company</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <p class="eyebrow center">Kind Words</p>
+    <h2 class="center reveal-up">What Our Guests Say</h2>
+
+    <div class="testimonial-slider">
+      <div class="testimonial-track" id="testimonialTrack">
+        <!-- injected by JS -->
+      </div>
+      <button class="slider-arrow prev" id="prevTestimonial" aria-label="Previous testimonial">&#8249;</button>
+      <button class="slider-arrow next" id="nextTestimonial" aria-label="Next testimonial">&#8250;</button>
+      <div class="slider-dots" id="sliderDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESERVATION ================= -->
+<section class="reservation" id="reservation">
+  <div class="container reservation-grid">
+    <div class="reservation-copy reveal-left">
+      <p class="eyebrow">Book Ahead</p>
+      <h2>Reserve Your Table</h2>
+      <p>Save your favorite corner — whether it's a window seat for two or the long table for your whole team.</p>
+      <ul class="reservation-points">
+        <li>Instant confirmation by email</li>
+        <li>Free cancellation up to 2 hours before</li>
+        <li>Groups of 8+ welcome, just let us know</li>
+      </ul>
+      <img class="reservation-img" src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?q=80&w=900&auto=format&fit=crop" alt="Guests enjoying coffee at a reserved table" loading="lazy">
+    </div>
+
+    <form class="reservation-form glass reveal-right" id="reservationForm">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="resName">Full Name</label>
+          <input type="text" id="resName" required placeholder="Jordan Lee">
+        </div>
+        <div class="form-field">
+          <label for="resEmail">Email</label>
+          <input type="email" id="resEmail" required placeholder="jordan@email.com">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="resPhone">Phone</label>
+          <input type="tel" id="resPhone" required placeholder="(555) 123-4567">
+        </div>
+        <div class="form-field">
+          <label for="resGuests">Guests</label>
+          <select id="resGuests" required>
+            <option value="">Select</option>
+            <option>1 Guest</option><option>2 Guests</option><option>3 Guests</option><option>4 Guests</option><option>5+ Guests</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="resDate">Date</label>
+          <input type="date" id="resDate" required>
+        </div>
+        <div class="form-field">
+          <label for="resTime">Time</label>
+          <input type="time" id="resTime" required>
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="resNotes">Special Requests</label>
+        <textarea id="resNotes" rows="3" placeholder="Window seat, high chair, allergy notes…"></textarea>
+      </div>
+      <button type="submit" class="btn btn-gold btn-block">Book Table</button>
+      <p class="form-success" id="resSuccess" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq" id="faq">
+  <div class="container">
+    <p class="eyebrow center">Good To Know</p>
+    <h2 class="center reveal-up">Frequently Asked Questions</h2>
+    <div class="faq-list" id="faqList">
+      <div class="faq-item reveal-up">
+        <button class="faq-q">Do you offer dairy-free milk options? <span>+</span></button>
+        <div class="faq-a"><p>Yes — oat, almond, soy and coconut milk are available at no extra charge.</p></div>
+      </div>
+      <div class="faq-item reveal-up">
+        <button class="faq-q">Can I order ahead for pickup? <span>+</span></button>
+        <div class="faq-a"><p>Absolutely, use the "Order Now" button or our app to schedule a pickup time.</p></div>
+      </div>
+      <div class="faq-item reveal-up">
+        <button class="faq-q">Do you cater private events? <span>+</span></button>
+        <div class="faq-a"><p>Yes, we offer coffee catering and pastry platters for events of any size — contact us for a quote.</p></div>
+      </div>
+      <div class="faq-item reveal-up">
+        <button class="faq-q">Is parking available? <span>+</span></button>
+        <div class="faq-a"><p>Street parking is available on Roastery Lane, plus a small lot behind the building.</p></div>
+      </div>
+      <div class="faq-item reveal-up">
+        <button class="faq-q">Are your beans ethically sourced? <span>+</span></button>
+        <div class="faq-a"><p>Every bean is traceable to origin — we work directly with farming co-ops on fair-trade terms.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+    <div class="container">
+        <p class="eyebrow center">Get In Touch</p>
+        <h2 class="center">We'd Love to Hear From You</h2>
+
+        <div class="contact-grid">
+
+            <div class="contact-card">
+                <h3>📍 Address</h3>
+                <p>Puttur, Andhra Pradesh, India</p>
+            </div>
+
+            <div class="contact-card">
+                <h3>📞 Phone</h3>
+                <p>
+                    <a href="tel:+916302069554">
+                        +91 6302069554
+                    </a>
+                </p>
+            </div>
+
+            <div class="contact-card">
+                <h3>📧 Email</h3>
+                <p>
+                    <a href="mailto:psreekanthreddy467@gmail.com">
+                        psreekanthreddy467@gmail.com
+                    </a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-col footer-brand">
+      <a href="#home" class="logo light">
+        <span class="logo-mark">☕</span><span class="logo-text">Brew<em>Haven</em></span>
+      </a>
+      <p>Handcrafted coffee, roasted with purpose, served with warmth — since 2014.</p>
+      <div class="socials">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="Twitter / X">𝕏</a>
+        <a href="#" aria-label="TikTok">♪</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#about">About</a><a href="#gallery">Gallery</a><a href="#testimonials">Testimonials</a><a href="#reservation">Reservation</a><a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Menu</h4>
+      <a href="#menu">Espresso &amp; Coffee</a><a href="#menu">Cold Brews</a><a href="#menu">Bakery</a><a href="checkout.html">Checkout</a>
+    </div>
+    <div class="footer-col footer-newsletter">
+      <h4>Newsletter</h4>
+      <p>Weekly brewing tips &amp; seasonal offers.</p>
+      <form id="footerNewsletter">
+        <input type="email" placeholder="Email address" required>
+        <button type="submit" class="btn btn-gold btn-sm">Join</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; <span id="year"></span> Brew Haven Coffee. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<!-- Cart Drawer -->
+<aside class="drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="drawer-header"><h3>Your Cart</h3><button id="cartClose" aria-label="Close cart">&times;</button></div>
+  <div class="drawer-body" id="cartItems"></div>
+  <div class="drawer-footer">
+    <div class="drawer-total"><span>Subtotal</span><strong id="cartSubtotal">$0.00</strong></div>
+    <a href="checkout.html" class="btn btn-gold btn-block" id="checkoutBtn">Checkout</a>
+  </div>
+</aside>
+
+<!-- Wishlist Drawer -->
+<aside class="drawer" id="wishlistDrawer" aria-label="Wishlist">
+  <div class="drawer-header"><h3>Your Wishlist</h3><button id="wishlistClose" aria-label="Close wishlist">&times;</button></div>
+  <div class="drawer-body" id="wishlistItems"></div>
+</aside>
+<div class="drawer-overlay" id="drawerOverlay"></div>
+
+<!-- AI Chatbot Widget Placeholder -->
+<div class="chatbot-widget">
+  <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open chat assistant">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  </button>
+  <div class="chatbot-panel" id="chatbotPanel">
+    <div class="chatbot-head">☕ Haven Assistant<button id="chatbotClose" aria-label="Close chat">&times;</button></div>
+    <div class="chatbot-body">
+      <p class="bot-msg">Hi there! I'm the Brew Haven assistant (placeholder). Ask me about our menu, hours, or reservations once connected to a live model.</p>
+    </div>
+    <div class="chatbot-input"><input type="text" placeholder="Type a message…" disabled><button disabled>Send</button></div>
+  </div>
+</div>
+
+<script src="coffee.js"></script>
+</body>
+</html>

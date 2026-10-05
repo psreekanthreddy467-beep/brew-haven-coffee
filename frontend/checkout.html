@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | Brew Haven Coffee</title>
+<meta name="description" content="Complete your Brew Haven Coffee order — review your cart, enter delivery details, and confirm payment.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="coffee.css">
+</head>
+<body class="checkout-page">
+
+<header class="site-header static-header">
+  <nav class="navbar">
+    <a href="index.html" class="logo"><span class="logo-mark">☕</span><span class="logo-text">Brew<em>Haven</em></span></a>
+    <a href="index.html#menu" class="btn btn-outline btn-sm">&larr; Back to Menu</a>
+  </nav>
+</header>
+
+<main class="container checkout-wrap">
+  <h1>Checkout</h1>
+  <div class="checkout-grid">
+    <form class="checkout-form glass" id="checkoutForm">
+      <h3>1. Delivery Details</h3>
+
+<div class="form-row">
+
+    <div class="form-field">
+        <label for="customerName">Full Name</label>
+        <input
+            type="text"
+            id="customerName"
+            required
+        >
+    </div>
+
+    <div class="form-field">
+        <label for="customerPhone">Phone</label>
+        <input
+            type="tel"
+            id="customerPhone"
+            required
+        >
+    </div>
+
+</div>
+
+<div class="form-field">
+    <label for="customerEmail">Email</label>
+    <input
+        type="email"
+        id="customerEmail"
+        required
+        placeholder="your@email.com"
+    >
+</div>
+
+<div class="form-field">
+    <label for="customerAddress">Address</label>
+    <input
+        type="text"
+        id="customerAddress"
+        required
+        placeholder="Street, City, ZIP"
+    >
+</div>
+      <h3>2. Payment</h3>
+      
+
+<div class="form-field">
+  <label>Payment Method</label>
+
+  <select id="paymentMethod" required>
+    <option value="cod">Cash on Delivery</option>
+  </select>
+</div>
+
+      <button type="submit" class="btn btn-gold btn-block">Place Order</button>
+      <p class="form-success" id="checkoutSuccess" role="status"></p>
+    </form>
+
+    <div class="checkout-summary glass">
+      <h3>Order Summary</h3>
+      <div id="checkoutItems"></div>
+      <div class="summary-row"><span>Subtotal</span><strong id="sumSubtotal">$0.00</strong></div>
+      <div class="summary-row"><span>Delivery</span><strong>$3.50</strong></div>
+      <div class="summary-row total"><span>Total</span><strong id="sumTotal">$0.00</strong></div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+
+    <div class="footer-content">
+
+        <h3>Brew Haven Coffee</h3>
+
+        <p>
+            Freshly Brewed Happiness in Every Cup.
+        </p>
+
+        <p>
+            📞 +91 6302069554
+        </p>
+
+        <p>
+            📧 psreekanthreddy467@gmail.com
+        </p>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>
+            © <span id="year"></span> Brew Haven Coffee.
+            Designed by <strong>P. Sreekanth Reddy</strong>.
+            All Rights Reserved.
+        </p>
+    </div>
+
+</footer>
+
+<script src="coffee.js"></script>
+</body>
+</html>
