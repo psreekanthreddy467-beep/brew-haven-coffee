@@ -6,7 +6,7 @@ const helmet = require("helmet");
 
 const connectDB = require("./config/db");
 const Product = require("./models/product");
-const Order = require("./models/Order")
+const Order = require("./models/order")
 const sendOrderEmails = require("./email");
 
 const app = express();
