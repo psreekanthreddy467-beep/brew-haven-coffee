@@ -3,7 +3,7 @@ const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
-    secure: true,
+    secure: false,
 
     // Force IPv4
     family: 4,
@@ -20,7 +20,7 @@ async function sendOrderEmails(order) {
     console.log("Order received by email.js:");
     console.log(order);
     console.log("Customer email:", order.customer?.email);
-    console.log("Admin email:", process.env.ADMIN_EMAIL);
+    console.log("Admin email:", process.env.psreekanthreddy467);
     console.log("=================================");
 
     if (!order || !order.customer) {
@@ -31,7 +31,7 @@ async function sendOrderEmails(order) {
         throw new Error("Customer email is missing");
     }
 
-    if (!process.env.ADMIN_EMAIL) {
+    if (!process.env.psreekanthreddy467L) {
         throw new Error("ADMIN_EMAIL is missing");
     }
 
