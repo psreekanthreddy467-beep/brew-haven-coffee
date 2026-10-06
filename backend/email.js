@@ -5,13 +5,14 @@ const transporter = nodemailer.createTransport({
     port: 587,
     secure: false,
 
-    // Force IPv4
-    family: 4,
-
     auth: {
-        user: process.env.psreekanthreddy467,
-        pass: process.env.ghldrqbcfittjaxn
-    }
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+    },
+
+    connectionTimeout: 20000,
+    greetingTimeout: 20000,
+    socketTimeout: 20000
 });
 
 async function sendOrderEmails(order) {
@@ -20,7 +21,7 @@ async function sendOrderEmails(order) {
     console.log("Order received by email.js:");
     console.log(order);
     console.log("Customer email:", order.customer?.email);
-    console.log("Admin email:", process.env.psreekanthreddy467);
+    console.log("Admin email:", process.env.ADMIN_EMAIL);
     console.log("=================================");
 
     if (!order || !order.customer) {
@@ -31,22 +32,18 @@ async function sendOrderEmails(order) {
         throw new Error("Customer email is missing");
     }
 
-    if (!process.env.psreekanthreddy467L) {
+    if (!process.env.ADMIN_EMAIL) {
         throw new Error("ADMIN_EMAIL is missing");
     }
 
     const itemsText = order.items
-        .map(item => {
-            return `${item.productId} x ${item.quantity}`;
-        })
+        .map(item => `${item.name || item.productId} x ${item.quantity}`)
         .join("\n");
 
-    // Email to customer
     await transporter.sendMail({
-        from: `"Brew Haven Coffee" <${process.env.psreekanthreddy467}>`,
+        from: `"Brew Haven Coffee" <${process.env.EMAIL_USER}>`,
         to: order.customer.email,
         subject: "Brew Haven Coffee - Order Confirmation",
-
         text: `
 Hello ${order.customer.name},
 
@@ -74,12 +71,10 @@ Thank you for choosing Brew Haven Coffee!
 `
     });
 
-    // Email to admin
     await transporter.sendMail({
-        from: `"Brew Haven Coffee" <${process.env.psreekanthreddy467}>`,
-        to: process.env.psreekanthreddy467,
+        from: `"Brew Haven Coffee" <${process.env.EMAIL_USER}>`,
+        to: process.env.ADMIN_EMAIL,
         subject: "New Brew Haven Coffee Order",
-
         text: `
 NEW ORDER RECEIVED
 
