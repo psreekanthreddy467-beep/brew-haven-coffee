@@ -4,24 +4,25 @@ const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
     secure: false,
+    family: 4,
 
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
     },
 
-    connectionTimeout: 20000,
-    greetingTimeout: 20000,
-    socketTimeout: 20000
+    connectionTimeout: 30000,
+    greetingTimeout: 30000,
+    socketTimeout: 30000
 });
 
 async function sendOrderEmails(order) {
 
     console.log("========== EMAIL DEBUG ==========");
-    console.log("Order received by email.js:");
-    console.log(order);
     console.log("Customer email:", order.customer?.email);
     console.log("Admin email:", process.env.ADMIN_EMAIL);
+    console.log("EMAIL_USER loaded:", !!process.env.EMAIL_USER);
+    console.log("EMAIL_PASS loaded:", !!process.env.EMAIL_PASS);
     console.log("=================================");
 
     if (!order || !order.customer) {
@@ -37,13 +38,14 @@ async function sendOrderEmails(order) {
     }
 
     const itemsText = order.items
-        .map(item => `${item.name || item.productId} x ${item.quantity}`)
+        .map(item => `${item.name} x ${item.quantity}`)
         .join("\n");
 
     await transporter.sendMail({
         from: `"Brew Haven Coffee" <${process.env.EMAIL_USER}>`,
         to: order.customer.email,
         subject: "Brew Haven Coffee - Order Confirmation",
+
         text: `
 Hello ${order.customer.name},
 
@@ -75,6 +77,7 @@ Thank you for choosing Brew Haven Coffee!
         from: `"Brew Haven Coffee" <${process.env.EMAIL_USER}>`,
         to: process.env.ADMIN_EMAIL,
         subject: "New Brew Haven Coffee Order",
+
         text: `
 NEW ORDER RECEIVED
 
